@@ -159,7 +159,7 @@ public class SquidGame {
                  System.out.println("You are offense.");
                  
                  System.out.println("\nYOU WON SQUID GAME!");
-                 System.out.println("\nYou can now go homw free of bankrupcy!");
+                 System.out.println("\nYou can now go homw free of bankrupcy. You won, but was it worth it...?");
                }
                else {
                  System.out.println("You are defense.");
