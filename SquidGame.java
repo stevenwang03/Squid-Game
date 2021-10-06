@@ -23,14 +23,15 @@ public class SquidGame {
         
         System.out.println("Do you accept? Yes or No?");
         String answer = scanner.nextLine();
+        answer = answer.toUpperCase(); //this allows the user to type any variation in case
         
-        if (answer.equals("Yes") || answer.equals("yes")) {
+        if (answer.equals("YES")) {
             
             System.out.println("\nAfter several attempts, you finally beat the strange man in Ddakji.");
             System.out.println("He asks you to join him in more games for cash. 46.5 million Won to be exact. You accept. \n"); 
             
             /* Red light green light can be programmed into the game. However, this game must ensure a winner.
-             To guarantee the player advances to the next round, the player will automatically win. To
+             To guarantee the player advances to the next round, the player will automatically win.
              The purpose of this section is to build suspense in the player. */
             System.out.println("You enter the first game as player number " + playerNumber + " of 456. The game: Red Light Green Light");
             System.out.println("A doll stands before you. You must make it to her but cannot move unless she says Green Light");
@@ -64,11 +65,12 @@ public class SquidGame {
             System.out.println("The next game requires you to choose a shape. Pick carefully.");
             System.out.println("Type your desired shape: Circle, Triangle, Star, or Umbrella.");
             String shape = scanner.nextLine();
+            shape = shape.toUpperCase();
             
             /*Dalgona or honeycomb is a carmelized candy that can be carved out with a thin needle
               More complex shapes will break more easily. Circles, Triangle, and Stars almost never break, whereas Umbrella's have a high probability
               This game is a test of luck and probability of carving. */
-            if (shape.equals("Circle") || shape.equals("circle") || shape.equals("Triangle") || shape.equals("triangle") ||shape.equals("Star") ||shape.equals("star") || Math.random() > 0.9) {
+            if (shape.equals("CIRCLE") || shape.equals("TRIANGLE") || shape.equals("STAR") || Math.random() > 0.9) {
                 System.out.println("\nYou were asked to remove this shape from a honeycomb/dalgona candy, and you won! ○ △ ⭑");
                 System.out.println("Either the simple design or your sheer skill helped you achieve this win.");
                 
@@ -102,8 +104,8 @@ public class SquidGame {
                 System.out.println("      /  /        \\  \\");
                 System.out.println("     /  /          \\  \\");                   
                  
-                /* The next game is a diverging bridge. The player must choose to take the left or right step each move. The
-                   Each step is a glass panel with a 50% chance of deaht. The bridgeOrder represents what time they will step on the bridge.Each
+                /* The next game is a diverging bridge. The player must choose to take the left or right step each move.
+                   Each step is a glass panel with a 50% chance of deaht. The bridgeOrder represents what time they will step on the bridge.
                    The later you step on, the higher likelihood you will no the way, as previous players would have found a path. */
                 System.out.println("\nThe next game brings you to a diverging bridge. Choose a number between 1 and " + numberAlive + ":");
                 int bridgeOrder = scanner.nextInt();
@@ -113,19 +115,20 @@ public class SquidGame {
                 System.out.println("Each step has a 50% chance of leading to your brutal demise");
 
                 //Bridge order determines how many chances you have.
-                // A larger number out of 15 is increased likelihood of survival. A
+                //A larger number out of 15 is increased likelihood of survival.
                 //For example, number 10 would have 5 spaces left previous players would have died trying to commute to the finish line. 
-                String glass = "Left";
+                String glass = "LEFT";
                 for (int i = 15 - bridgeOrder; i>0; i--) {
                      System.out.println("\n");
                      System.out.println("As order number " + bridgeOrder + ", you have " + i + " chances of survival. Choose Left or Right:");
                      String leftRight = scanner.next();
+                     leftRight = leftRight.toUpperCase();
                      
-                     //This for loop iterates the number of chances a player has.This
+                     //This for loop iterates the number of chances a player has.
                      //The conditional statements allow the player to choose Left vs. Right with a 50% chance of survival.
-                     glass = "Right";
+                     glass = "RIGHT";
                      if (Math.random() > 0.5) {
-                         glass = "Left";
+                         glass = "LEFT";
                      }
                      if (leftRight.equals(glass)) {
                          System.out.println("You made one step forward");
@@ -151,7 +154,7 @@ public class SquidGame {
                System.out.println(deathCount + " players were eliminated. There is " + money + " in the winner's prize. The stakes have never been higher.");
                
               
-               /* In Squid Game, an offensive player must make it to the triangle, a head of the squid. In
+               /* In Squid Game, an offensive player must make it to the triangle, a head of the squid.
                 * The defensive member will push the other player out of the ring to win.The
                 * Because the offensive has a knife in this violent game, the offensive player will nearly always win */
                System.out.println("\nThe next game is Squid Game. You and the other player, Sangwoo, will flip a coin to see who plays offense, the surefire path to victory.");
